@@ -1,4 +1,5 @@
-// src/index.ts
+// Contains app logic for server functionality
+
 import express, { Application } from 'express';
 
 const app: Application = express();
@@ -9,5 +10,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+  console.log(`Server is running at http://localhost:${port}`);
 });
