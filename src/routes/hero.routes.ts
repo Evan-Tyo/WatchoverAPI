@@ -8,7 +8,7 @@ import express from "express";
 / that hero name. At least that's the plan
 / at this time.
 */
-export let heroRouter = (heroName: string) => {
+export let getHero = (heroName: string) => {
     const router = express.Router();
 
     router.get('/', (req, res) => {
