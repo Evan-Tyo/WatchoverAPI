@@ -4,34 +4,10 @@ import { HeroController } from "../controllers/hero.controller";
 const heroController = new HeroController();
 const router = express.Router();
 
-// How can I reuse the router logic for all of the hero endpoints?
-// Basically like middleware, but I want to do it in this file before making a new file.
-
-// const setLocalHero = (req: Request, res: Response, next: NextFunction) => {
-//     res.locals.hero = `${hero}`;
-//     next();
-// }
-
-const setLocalHero = (req: Request, res: Response, next: NextFunction) => {
-    res.locals.hero = `D.Va`;
-    next();
-}
-
 router.get('/all', heroController.getAllHeroes)
-
-router.get('/D.Va', setLocalHero, heroController.getHero);
-
-router.get('/Reaper', 
-    (req, res, next) => {
-        res.locals.hero = 'Reaper';
-        next();
-    },
-    heroController.getHero
-);
+router.get('/:hero', heroController.getHero)
 
 export { router as heroRouter };
-
-
 
 
 /*
@@ -53,10 +29,3 @@ export { router as heroRouter };
 
 //     return router;
 // }
-
-// router.get('/', async (request, response) => {
-//     console.log('hitting the router');
-//     response.send();
-//     // let heroName = request.query.heroName;
-//     // response.send(`Hero Name: ${heroName}`);
-// });

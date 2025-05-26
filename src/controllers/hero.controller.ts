@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 
+const heroes = ['D.Va', 'Reaper', 'Soldier: 76'];
+
 export class HeroController {
 
     async getAllHeroes(req: Request, res: Response) {
@@ -16,9 +18,9 @@ export class HeroController {
     };
 
     async getHero(req: Request, res: Response) {
-        const hero = res.locals.hero;
+        const hero = req.params.hero;
 
-        if(hero) {
+        if(heroes.includes(hero)) {
             try {
                 res.status(200).json({
                     message: `${hero} information`,
@@ -29,6 +31,10 @@ export class HeroController {
                     message: `Oopsies made an oopsies on getHero ${e}`,
                 });
             }
+        } else {
+            res.status(500).json({
+                message: `Hero: ${hero} does not exist.`,
+            });
         }
     };
 
