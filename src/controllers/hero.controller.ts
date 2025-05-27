@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-
-const heroes = ['D.Va', 'Reaper', 'Soldier: 76'];
+import { heroes } from "../utils/constants";
 
 export class HeroController {
 

@@ -6,4 +6,4 @@ export default new Pool ({
     database: 'database',
     password: 'password',
     port: 1
-})
+});

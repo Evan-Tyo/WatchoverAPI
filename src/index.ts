@@ -4,7 +4,7 @@ import express, { Application } from 'express';
 import { heroRouter } from './routes/hero.routes';
 
 const app: Application = express();
-const port = 3000;
+const port = process.env.PORT;
 
 // app.get('/', (req, res) => {
 //   let heroName = req.query.heroName;
