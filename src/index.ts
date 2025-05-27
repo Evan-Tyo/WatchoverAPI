@@ -1,18 +1,10 @@
 // Contains app logic for server functionality
-
+import 'dotenv/config'
 import express, { Application } from 'express';
 import { heroRouter } from './routes/hero.routes';
 
 const app: Application = express();
-const port = process.env.PORT;
-
-// app.get('/', (req, res) => {
-//   let heroName = req.query.heroName;
-//   res.send(`Hero Name: ${heroName}`);
-// });
-
-// app.use('/D.Va', getHero('D.Va'));
-// app.use('/Reaper', getHero('Reaper'));
+const port = parseInt(process.env.PORT || '3000')
 
 app.use('/heroes', heroRouter);
 
