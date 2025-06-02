@@ -10,12 +10,12 @@ export class HeroController {
         try {
             const result = await heroDatabase.getAllHeroes();
             res.status(200).json({
-                message: "All heroes teehee",
+                message: "All Heroes",
                 body: result
             });
         } catch (e) {
             res.status(500).json({
-                message: `Oopsies made an oopsies on getAllHeroes ${e}`,
+                message: `Error getAllHeroes: ${e}`,
             });
         }
     };
@@ -32,7 +32,7 @@ export class HeroController {
                 });
             } catch (e) {
                 res.status(500).json({
-                    message: `Oopsies made an oopsies on getHero ${e}`,
+                    message: `Error getHero: ${e}`,
                 });
             }
         } else {
